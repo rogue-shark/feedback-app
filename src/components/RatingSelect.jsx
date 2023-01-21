@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 function RatingSelect({ select }) {
   const [selected, setSelected] = useState(10);
+
   const handleChange = (e) => {
     // console.log(e.currentTarget.value) //check using typeOf and it show we get a string - so to change it into a num -> + is added as prefix
     setSelected(+e.currentTarget.value); //will be set to what ever rating radio button we select

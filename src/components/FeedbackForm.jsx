@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import RatingSelect from './RatingSelect';
 import Card from './shared/Card';
 import Button from './shared/Button';
-import RatingSelect from './RatingSelect';
 
 function FeedbackForm({ handleAdd }) {
-  const [text, setText] = useState(''); //default value as empty string
+  const [text, setText] = useState('');
   const [rating, setRating] = useState(10);
-  const [btnDisabled, setBtnDisabled] = useState(true); //button will be disabled by default
+  const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
 
   const handleTextChange = (e) => {
@@ -20,19 +20,20 @@ function FeedbackForm({ handleAdd }) {
       setMessage(null);
       setBtnDisabled(false);
     }
-    // console.log(e.target.value)
-    setText(e.target.value); //now whatever we type in will be set to that piece of text
+
+    setText(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim().length() > 10) {
+    if (text.trim().length > 10) {
       const newFeedback = {
-        text, //shorthand for text: text,
+        text,
         rating,
       };
-      //   console.log(newFeedback);
+
       handleAdd(newFeedback);
+
       setText('');
     }
   };
@@ -53,7 +54,7 @@ function FeedbackForm({ handleAdd }) {
             Send
           </Button>
         </div>
-        {/* if message if present then */}
+
         {message && <div className='message'>{message}</div>}
       </form>
     </Card>
