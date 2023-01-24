@@ -22,6 +22,11 @@ export const FeedbackProvider = ({ children }) => {
     },
   ]);
 
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false, //if the edit icons is clicked it'll go into edit mode i.e setFeedbackEdit = true , else false by default
+  });
+
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     // console.log(newFeedback);
@@ -34,6 +39,13 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
 
+  const editFeedback = (item) => {
+    setFeedbackEdit({
+      item,
+      edit: true,
+    });
+  };
+
   return (
     <FeedbackContext.Provider
       //things we can use in our components that it's provided to
@@ -41,6 +53,7 @@ export const FeedbackProvider = ({ children }) => {
         feedback,
         deleteFeedback,
         addFeedback,
+        editFeedback,
       }}
     >
       {children}
