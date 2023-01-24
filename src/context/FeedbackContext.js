@@ -16,7 +16,7 @@ export const FeedbackProvider = ({ children }) => {
       rating: 1,
     },
     {
-      id: 2,
+      id: 3,
       text: 'this is from feedback 3',
       rating: 5,
     },
@@ -27,18 +27,28 @@ export const FeedbackProvider = ({ children }) => {
     edit: false, //if the edit icons is clicked it'll go into edit mode i.e setFeedbackEdit = true , else false by default
   });
 
+  // ADD feedback
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     // console.log(newFeedback);
     setFeedback([newFeedback, ...feedback]); //adding new feedback (on top) to already existing array of feedbacks
   };
 
+  // DELETE feedback
   const deleteFeedback = (id) => {
     if (window.confirm('Are you sure you want to delete?')) {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
 
+  // UPDATE feedback
+  const updateFeedback = (id, updItem) => {
+    setFeedback(
+      feedback.map((item) => (item.id === id ? { ...item, ...updItem } : item))
+    );
+  };
+
+  //EDIT feedback
   const editFeedback = (item) => {
     setFeedbackEdit({
       item,
@@ -55,6 +65,7 @@ export const FeedbackProvider = ({ children }) => {
         addFeedback,
         editFeedback, //function that runs when we click the edit button
         feedbackEdit, //actual piece of state that holds the item and the boolean
+        updateFeedback,
       }}
     >
       {children}
