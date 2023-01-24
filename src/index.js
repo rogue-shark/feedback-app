@@ -5,10 +5,10 @@ import './index.css';
 
 //syntax: ReactDOM.render(what we want to render - HTML, where we want to put this for it to render)
 ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 //React 18
