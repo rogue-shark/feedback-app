@@ -1,5 +1,4 @@
-# DEMO 
-[FEEDBACK-app](https://feedback-app-react-rs.netlify.app/).
+# [DEMO] (https://feedback-app-react-rs.netlify.app/)
 
 # Getting Started with Create React App
 
