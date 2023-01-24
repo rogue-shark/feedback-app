@@ -1,4 +1,8 @@
-<h1> [DEMO](https://feedback-app-react-rs.netlify.app/) </h1>
+ <h1>
+   <a href="https://feedback-app-react-rs.netlify.app/">
+      Demo
+   </a>
+</h1>
 
 # Getting Started with Create React App
 
