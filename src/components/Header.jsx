@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types' //impt
+import PropTypes from 'prop-types'; //impt
 
 function Header({ text, bgColor, txtColor }) {
-  
-   const headerStyle = {
-      backgroundColor: bgColor,
-      color: txtColor
-   }
-  
+  const headerStyle = {
+    backgroundColor: bgColor,
+    color: txtColor,
+  };
+
   return (
     <header style={headerStyle}>
-      <div className="container">
+      <div className='container'>
         <h2>{text}</h2>
       </div>
     </header>
@@ -18,16 +17,16 @@ function Header({ text, bgColor, txtColor }) {
 
 // nameOfComponent.defaultProps
 Header.defaultProps = {
-    text: 'Feedback page',
-    bgColor: 'rgba(0,0,0,0.4)',
-    txtColor: 'tomato'
-}
+  text: 'Feedback page',
+  bgColor: '#152219',
+  txtColor: 'beige',
+};
 
-// propTypes - making our app more robust 
+// propTypes - making our app more robust
 Header.propTypes = {
-    text: PropTypes.string,
-    bgColor : PropTypes.string,
-    txtColor: PropTypes.string
-}
+  text: PropTypes.string,
+  bgColor: PropTypes.string,
+  txtColor: PropTypes.string,
+};
 
 export default Header;
