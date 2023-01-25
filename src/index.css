@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --num-font-family: 'Roboto Mono', monospace;
 }
 
 body {
@@ -75,6 +80,7 @@ header {
 }
 
 .rating li label {
+  font-family: var(--num-font-family);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -88,6 +94,7 @@ header {
 
 .rating li:hover,
 .num-display {
+  font-family: var(--num-font-family);
   background: #ff5733;
   color: #fff;
 }
@@ -126,6 +133,7 @@ input[type=text] {
 }
 
 .feedback-stats {
+  font-family: var(--num-font-family);
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -153,6 +161,8 @@ input[type=text] {
 }
 
 .btn {
+  font-family: var(--num-font-family);
+  font-weight: 500;
   color: #fff;
   border: 0;
   border-radius: 0 4px 4px 0;
@@ -189,7 +199,7 @@ input[type=text] {
 .message {
   padding-top: 10px;
   text-align: center;
-  color: rebeccapurple;
+  color: #012b66;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
@@ -224,6 +234,7 @@ input[type=text] {
   }
 
   .rating {
+    
     display: flex;
     align-items: center;
     justify-content: center;
