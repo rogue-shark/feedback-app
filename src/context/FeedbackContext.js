@@ -5,6 +5,7 @@ const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
@@ -23,6 +24,7 @@ export const FeedbackProvider = ({ children }) => {
     const data = await res.json();
     // console.log(data);
     setFeedback(data);
+    setLoading(false);
   };
 
   // ADD feedback
@@ -59,6 +61,7 @@ export const FeedbackProvider = ({ children }) => {
       //things we can use in our components that it's provided to
       value={{
         feedback,
+        loading,
         deleteFeedback,
         addFeedback,
         editFeedback, //function that runs when we click the edit button
