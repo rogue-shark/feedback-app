@@ -7,7 +7,7 @@ function FeedbackList() {
   const { feedback } = useContext(FeedbackContext);
 
   if (!feedback || feedback.length === 0) {
-    return 'No feedback data entries.';
+    return 'No feedbacks found.';
   }
   //with framer-motion
   return (

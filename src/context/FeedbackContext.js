@@ -1,31 +1,29 @@
 import { v4 as uuidv4 } from 'uuid';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
-  const [feedback, setFeedback] = useState([
-    {
-      id: 1,
-      text: 'this is from feedback 1',
-      rating: 10,
-    },
-    {
-      id: 2,
-      text: 'this is from feedback 2',
-      rating: 1,
-    },
-    {
-      id: 3,
-      text: 'this is from feedback 3',
-      rating: 5,
-    },
-  ]);
+  const [feedback, setFeedback] = useState([]);
 
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false, //if the edit icons is clicked it'll go into edit mode i.e setFeedbackEdit = true , else false by default
   });
+
+  useEffect(() => {
+    fetchFeedback();
+  }, []);
+
+  //FETCH feedback
+  const fetchFeedback = async () => {
+    const res = await fetch(
+      `http://localhost:5000/feedback?_sort=id&_order=desc` //'sort' by "id" in "descending" 'order'
+    );
+    const data = await res.json();
+    // console.log(data);
+    setFeedback(data);
+  };
 
   // ADD feedback
   const addFeedback = (newFeedback) => {
