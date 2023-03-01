@@ -28,6 +28,7 @@ function App() {
                   <FeedbackForm />
                   <FeedbackStats />
                   <FeedbackList />
+                  <AboutIcon />
                 </>
               }
             ></Route>
@@ -35,7 +36,7 @@ function App() {
             <Route path='/about' element={<AboutPage />} />
           </Routes>
 
-          <AboutIcon />
+          
         </div>
       </Router>
     </FeedbackProvider>
